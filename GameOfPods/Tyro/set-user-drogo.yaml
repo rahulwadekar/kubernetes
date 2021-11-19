@@ -1,0 +1,6 @@
+controlplane $ kubectl create role developer-role --resource=pods,svc,pvc --verb="*" --namespace=development
+role.rbac.authorization.k8s.io/developer-role created
+controlplane $ kubectl -n development create rolebinding developer-rolebinding --role=developer-role --user=drogo
+rolebinding.rbac.authorization.k8s.io/developer-rolebinding created
+controlplane $ kubectl config set-credentials drogo --client-certificate=/root/drogo.crt --client-key=/root/drogo.key
+User "drogo" set.

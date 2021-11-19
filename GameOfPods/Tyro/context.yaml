@@ -1,0 +1,12 @@
+ kubectl config set-context developer --user=drogo --namespace=development   && kubectl config use-context developer
+
+ kubectl config set-context kubernetes-admin --user=kubernetes-admin@kubernetes  && kubectl config use-context kubernetes-admin
+
+kubectl create role developer-role --resource=pods,svc,pvc --verb="*" --namespace=development
+
+kubectl -n development create rolebinding developer-rolebinding --role=developer-role --user=drogo
+
+kubectl config set-credentials drogo --client-certificate=/root/drogo.crt --client-key=/root/drogo.key
+
+
+Zyhys perzys stepagon schedulara Oño resarc, se poda lys qelitsos sikagon
